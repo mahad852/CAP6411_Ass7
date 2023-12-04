@@ -1,0 +1,8 @@
+*.png
+.ipynb_checkpoints/
+Bbox.py
+predictor_example.ipynb
+*.pth
+__pycache__
+*.pyc
+.DS_Store
