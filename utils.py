@@ -1,6 +1,4 @@
-import os
 import numpy as np
-from BBox import BBox
 
 from PIL import Image, ImageColor
 from matplotlib.colors import rgb2hex
