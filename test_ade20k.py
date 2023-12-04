@@ -52,9 +52,9 @@ def compute_iou_for_ade20k_using_sam(path, predictor: SamPredictor):
                     ious.append(max(list(map(lambda mask: compute_iou_between_gt_and_sam(mask_gt, mask, label), masks))))
 
                     masks_processed += 1
-                
-                if masks_processed % 20 == 0:
-                    print('ADE20K, masks processed:', masks_processed)
+                    
+                    if masks_processed % 20 == 0:
+                        print('ADE20K, masks processed:', masks_processed)
     
     print('total mean IoU:', sum(ious)/len(ious), 'Total IoUs sum:', sum(ious))
 
