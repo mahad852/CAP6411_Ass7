@@ -10,7 +10,8 @@ def compute_iou_for_ade20k_using_sam(path, predictor: SamPredictor):
     sub_dirs = [os.path.join(path, sub_dir) for sub_dir in os.listdir(path)]
 
     ious = []
-
+    masks_processed = 0
+    
     for sub_dir in sub_dirs:
         if not os.path.isdir(sub_dir):
             continue
@@ -49,6 +50,11 @@ def compute_iou_for_ade20k_using_sam(path, predictor: SamPredictor):
                     )
                     
                     ious.append(max(list(map(lambda mask: compute_iou_between_gt_and_sam(mask_gt, mask, label), masks))))
+
+                    masks_processed += 1
+                
+                if masks_processed % 20 == 0:
+                    print('ADE20K, masks processed:', masks_processed)
     
     print('total mean IoU:', sum(ious)/len(ious), 'Total IoUs sum:', sum(ious))
 
