@@ -24,13 +24,17 @@ plant_path = os.path.join('..', 'Plant_Phenotyping_Datasets', 'Plant')
 ishape_path = os.path.join('..', 'ishape')
 gtea_path = os.path.join('..', 'GeorgiaTech', 'GTEA')
 
+print('Testing SAM on ADE20k...')
 compute_iou_for_ade20k_using_sam(ade_path, predictor)
 print()
 
+print('Testing SAM on leaf...')
 compute_iou_for_leaf_using_sam(plant_path, predictor)
 print()
 
+print('Testing SAM on iShape...')
 compute_iou_for_ishape_using_sam(ishape_path, predictor)
 print()
 
+print('Testing SAM on GTEA...')
 compute_iou_for_gtea_using_sam(gtea_path, predictor)
