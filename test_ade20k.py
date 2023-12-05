@@ -48,13 +48,16 @@ def compute_iou_for_ade20k_using_sam(path, predictor: SamPredictor):
                         point_labels=np.array([int(label[1:], 16)]),
                         multimask_output=True,
                     )
-                    
-                    ious.append(max(list(map(lambda mask: compute_iou_between_gt_and_sam(mask_gt, mask, label), masks))))
+                    max_iou = max(list(map(lambda mask: compute_iou_between_gt_and_sam(mask_gt, mask, label), masks)))
+                    ious.append(max_iou)
 
                     masks_processed += 1
                     
                     if masks_processed % 20 == 0:
                         print('ADE20K, masks processed:', masks_processed)
+
+                    with open('iou_ade20k.txt', 'a+') as f:
+                         f.writelines(['IoU: ' + str(max_iou)])
     
     print('total mean IoU:', sum(ious)/len(ious), 'Total IoUs sum:', sum(ious))
 

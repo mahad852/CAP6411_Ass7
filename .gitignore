@@ -3,7 +3,7 @@
 Bbox.py
 predictor_example.ipynb
 *.pth
-__pycache__
+__pycache__/*
 *.pyc
 .DS_Store
 *.out

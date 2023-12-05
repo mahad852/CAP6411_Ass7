@@ -61,5 +61,8 @@ def compute_iou_for_ishape_using_sam(path, predictor: SamPredictor):
                     max_iou = iou if iou > max_iou else max_iou
 
                 ious.append(max_iou)
+
+                with open('iou_ishape.txt', 'a+') as f:
+                    f.writelines(['IoU: ' + str(max_iou)])
     
     print('mean IoU for leaf dataset:', sum(ious)/len(ious), 'IoUs sum:', sum(ious))
