@@ -57,7 +57,7 @@ def compute_iou_for_ade20k_using_sam(path, predictor: SamPredictor):
                         print('ADE20K, masks processed:', masks_processed)
 
                     with open('iou_ade20k.txt', 'a+') as f:
-                         f.writelines(['IoU: ' + str(max_iou)])
+                         f.write('IoU: ' + str(max_iou) + '\n')
     
     print('total mean IoU:', sum(ious)/len(ious), 'Total IoUs sum:', sum(ious))
 

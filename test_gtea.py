@@ -41,6 +41,6 @@ def compute_iou_for_gtea_using_sam(path, predictor: SamPredictor):
 
             ious.append(max_iou)
             with open('iou_gtea.txt', 'a+') as f:
-                f.writelines(['IoU: ' + str(max_iou)])
+                f.write('IoU: ' + str(max_iou) + '\n')
 
     print('mean IoU for leaf dataset:', sum(ious)/len(ious), 'IoUs sum:', sum(ious))

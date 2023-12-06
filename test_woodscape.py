@@ -60,7 +60,7 @@ def compute_iou_for_woodscape_using_sam(path, predictor: SamPredictor):
 
             ious.append(max_iou)
             with open('iou_woodscape.txt', 'a+') as f:
-                f.writelines(['IoU: ' + str(max_iou)])
+                f.write('IoU: ' + str(max_iou) + '\n')
     
     print('mean IoU for woodscape dataset:', sum(ious)/len(ious), 'IoUs sum:', sum(ious))
 

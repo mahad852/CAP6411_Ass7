@@ -45,5 +45,10 @@ def compute_iou_for_leaf_using_sam(path, predictor: SamPredictor):
                 multimask_output=True,
             )
 
-            ious.append(max(list(map(lambda mask: compute_iou_between_gt_and_sam(mask_gt, mask, label), masks))))  
+            max_iou = max(list(map(lambda mask: compute_iou_between_gt_and_sam(mask_gt, mask, label), masks)))
+            ious.append(max_iou)  
+
+            with open('iou_leaf.txt', 'a+') as f:
+                f.write('IoU: ' + str(max_iou) + '\n')
+
     print('total mean IoU:', sum(ious)/len(ious), 'total IoU:', sum(ious))
